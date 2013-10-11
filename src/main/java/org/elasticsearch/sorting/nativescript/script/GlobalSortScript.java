@@ -21,9 +21,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class GlobalSortScript implements NativeScriptFactory {
+import javax.sound.midi.MidiDevice.Info;
 
-	private final ESLogger logger = Loggers.getLogger(GlobalSortScript.class);
+public class GlobalSortScript implements NativeScriptFactory {
 
 	@Override
 	public ExecutableScript newScript(@Nullable Map<String, Object> params) {	
@@ -35,6 +35,7 @@ public class GlobalSortScript implements NativeScriptFactory {
 		private final long one_hour = 3600000;
 		private final Date to_day = new Date();
 		private final Map<String, Integer> map = new HashMap<String, Integer>();
+		private final ESLogger logger = Loggers.getLogger(GlobalSortScript.class);
 		
 		public SortScript() {			
 			map.put("activity", 1);
@@ -43,8 +44,9 @@ public class GlobalSortScript implements NativeScriptFactory {
 			map.put("shop_product", 4);
 		}
 
-		public double runAsDouble() {			
-			switch (map.get(getFieldValue("_type"))) {
+		public double runAsDouble() {		
+			ScriptDocValues.Strings type = (ScriptDocValues.Strings) doc().get("_type");			
+			switch (map.get(type.getValue())) {
 			case 1:
 				return activity();				
 			case 2:

@@ -46,8 +46,7 @@ public class ActivitySortScript implements NativeScriptFactory {
 			} else {
 				return (total + (end_time.getTime() - to_day.getTime())) 
 						/ ((to_day.getTime() - start_time.getTime()) / one_hour);				
-			}			
-			return sum;
+			}		
 		}
 		
 		private String getFieldValue(String field) {

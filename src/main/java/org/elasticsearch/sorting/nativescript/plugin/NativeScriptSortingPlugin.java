@@ -1,6 +1,10 @@
 package main.java.org.elasticsearch.sorting.nativescript.plugin;
 
-import main.java.org.elasticsearch.sorting.nativescript.script.GlobalSortScript;
+import main.java.org.elasticsearch.sorting.nativescript.script.ActivitySortScript;
+import main.java.org.elasticsearch.sorting.nativescript.script.AskBuySortScript;
+import main.java.org.elasticsearch.sorting.nativescript.script.ProductSortScript;
+import main.java.org.elasticsearch.sorting.nativescript.script.ShopProductSortScript;
+
 import org.elasticsearch.plugins.AbstractPlugin;
 import org.elasticsearch.script.ScriptModule;
 
@@ -16,6 +20,9 @@ public class NativeScriptSortingPlugin extends AbstractPlugin{
   }
 
   public void onModule(ScriptModule module) {
-    module.registerScript("globalSort", GlobalSortScript.class);
+    module.registerScript("productSort", ProductSortScript.class);
+    module.registerScript("activitySort", ActivitySortScript.class);
+    module.registerScript("askbuySort", AskBuySortScript.class);
+    module.registerScript("shopProductSort", ShopProductSortScript.class);
   }
 }

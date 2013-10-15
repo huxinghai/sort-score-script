@@ -2,8 +2,6 @@ package main.java.org.elasticsearch.sorting.nativescript.script;
 
 import java.util.Map;
 
-import main.java.org.elasticsearch.sorting.nativescript.script.ActivitySortScript.SortScript;
-
 import org.elasticsearch.common.Nullable;
 import org.elasticsearch.script.AbstractDoubleSearchScript;
 import org.elasticsearch.script.ExecutableScript;

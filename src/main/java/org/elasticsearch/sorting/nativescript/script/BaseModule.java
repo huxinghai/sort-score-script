@@ -8,7 +8,7 @@ public class BaseModule {
 	public static Date parse_date(String s){
 		Date d = new Date();
 		try {
-			d = new SimpleDateFormat("yyyy-MM-dd").parse(s);
+			d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(s.replace("T", " "));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			

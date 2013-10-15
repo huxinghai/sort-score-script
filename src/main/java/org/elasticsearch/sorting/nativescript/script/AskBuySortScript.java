@@ -20,14 +20,14 @@ public class AskBuySortScript implements NativeScriptFactory {
 	}
 
 	private static class SortScript extends AbstractDoubleSearchScript {
-		private final ESLogger logger = Loggers.getLogger(AskBuySortScript.class);
+		//private final ESLogger logger = Loggers.getLogger(SortScript.class);
 		
 		public SortScript() {
 		}	
 		
 		public double runAsDouble(){			
 			Date c = BaseModule.parse_date(source().get("created_at").toString());
-			return 10 / (((new Date()).getTime() - c.getTime()) / 3600000);
+			return ((float) 10 / (((new Date()).getTime() - c.getTime()) / 3600000));
 		}
 	}
 }

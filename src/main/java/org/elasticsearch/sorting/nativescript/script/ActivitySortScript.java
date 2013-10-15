@@ -18,7 +18,7 @@ public class ActivitySortScript implements NativeScriptFactory {
 
 	public static class SortScript extends AbstractDoubleSearchScript {
 		
-		private final ESLogger logger = Loggers.getLogger(ActivitySortScript.class);
+		//private final ESLogger logger = Loggers.getLogger(ActivitySortScript.class);
 		private final long one_hour = 3600000;
 		private final Date to_day = new Date();
 		
@@ -27,14 +27,14 @@ public class ActivitySortScript implements NativeScriptFactory {
 		
 		@Override
 		public double runAsDouble() {
-			long total = (Long.parseLong(getFieldValue("like")) * 5)
-					+ (Long.parseLong(getFieldValue("participate")) * 100)
-					+ Long.parseLong(getFieldValue("status"));
+			float total = (Float.parseFloat(getFieldValue("like")) * 5)
+					+ (Float.parseFloat(getFieldValue("participate")) * 100)
+					+ Float.parseFloat(getFieldValue("status"));
 
 			Date start_time = BaseModule
 					.parse_date(getFieldValue("start_time"));
 			Date end_time = BaseModule.parse_date(getFieldValue("end_time"));
-			double sum = 0;
+			
 			if (start_time.after(to_day)) {
 				return total
 						/ ((start_time.getTime() - to_day.getTime()) / one_hour);
@@ -44,7 +44,7 @@ public class ActivitySortScript implements NativeScriptFactory {
 						/ ((to_day.getTime() - end_time.getTime()) / one_hour);
 				
 			} else {
-				return (total + (end_time.getTime() - to_day.getTime())) 
+				return (total + (((end_time.getTime() - to_day.getTime())/ one_hour) * 0.4)) 
 						/ ((to_day.getTime() - start_time.getTime()) / one_hour);				
 			}		
 		}

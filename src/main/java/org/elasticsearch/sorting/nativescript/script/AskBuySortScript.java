@@ -24,8 +24,9 @@ public class AskBuySortScript implements NativeScriptFactory {
 
 		public double runAsDouble() {
 			Date c = BaseModule.parse_date(source().get("created_at")
-					.toString());			
-			return (10 / (((new Date()).getTime() - c.getTime()) / 3600000));
+					.toString());		
+			double score = 10;
+			return (score / (((new Date()).getTime() - c.getTime()) / 3600000));
 		}
 	}
 }

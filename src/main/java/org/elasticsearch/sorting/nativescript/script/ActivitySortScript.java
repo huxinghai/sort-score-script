@@ -26,7 +26,7 @@ public class ActivitySortScript implements NativeScriptFactory {
 
 		@Override
 		public double runAsDouble() {
-			long total = (Long.parseLong(getFieldValue("like")) * 5)
+			double total = (Long.parseLong(getFieldValue("like")) * 5)
 					+ (Long.parseLong(getFieldValue("participate")) * 100)
 					+ Long.parseLong(getFieldValue("status"));
 

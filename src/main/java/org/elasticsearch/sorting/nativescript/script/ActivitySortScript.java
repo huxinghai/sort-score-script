@@ -39,8 +39,8 @@ public class ActivitySortScript implements NativeScriptFactory {
 						/ ((start_time.getTime() - to_day.getTime()) / one_hour);
 
 			} else if (start_time.before(to_day) && end_time.before(to_day)) {
-				return total
-						/ ((to_day.getTime() - end_time.getTime()) / one_hour);
+				return (total * 0.8)
+						/ (((to_day.getTime() - end_time.getTime()) / one_hour) * 100);
 
 			} else {
 				return (total + (((end_time.getTime() - to_day.getTime()) / one_hour) * 0.4))

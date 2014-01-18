@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>wanliu.panama.kaka</groupId>
     <artifactId>sort-score-script</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <packaging>jar</packaging>
     <description>ElasticSearch Plugin with Native Script Sort Score</description>
     <inceptionYear>2013</inceptionYear>

@@ -18,7 +18,7 @@ public class ActivitySortScript implements NativeScriptFactory {
 
 		// private final ESLogger logger =
 		// Loggers.getLogger(ActivitySortScript.class);
-		private final long one_hour = 3600000;
+		private final double one_hour = 3600000;
 		private final Date to_day = new Date();
 
 		public SortScript() {

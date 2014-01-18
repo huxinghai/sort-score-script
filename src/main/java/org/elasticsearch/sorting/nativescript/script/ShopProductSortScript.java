@@ -20,7 +20,11 @@ public class ShopProductSortScript implements NativeScriptFactory {
 		}
 		
 		public double runAsDouble(){
-			return 0.001;
+			Object amount = source().get("inventory");
+			double inventory = amount == null ? 0 : Double.parseDouble(amount.toString());  
+			double score = (inventory >= 10000 ? 5 : inventory * 0.0005);				
+			
+			return 0.001 + score;
 		}
 	}
 }

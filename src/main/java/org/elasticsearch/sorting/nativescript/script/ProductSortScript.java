@@ -20,22 +20,13 @@ public class ProductSortScript implements NativeScriptFactory {
 
 	private static class SortScript extends AbstractDoubleSearchScript {
 		
-		private final ESLogger logger = Loggers.getLogger(SortScript.class);	
+		//private final ESLogger logger = Loggers.getLogger(SortScript.class);	
 		
 		public SortScript() {
 		}
 
-		public double runAsDouble() {
-			Object create = source().get("created_at");
-			
-			double score = 0;
-			if(create != null){
-				Date c = BaseModule.parse_date(create.toString());				
-				double t = (((new Date()).getTime() - c.getTime()) / (double) 3600000);
-				score = 5 / t;				
-			}
-			
-			return 0.0001 + score;
+		public double runAsDouble() {		
+			return 0.0001;
 		}
 
 	}

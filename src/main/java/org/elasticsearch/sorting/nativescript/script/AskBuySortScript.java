@@ -21,16 +21,15 @@ public class AskBuySortScript implements NativeScriptFactory {
 
 	private static class SortScript extends AbstractDoubleSearchScript {
 		
-		private final ESLogger logger = Loggers.getLogger(SortScript.class);	
+		//private final ESLogger logger = Loggers.getLogger(SortScript.class);	
 		
 		public SortScript() {
 		}
 
 		public double runAsDouble() {
-//			
-			Date c = BaseModule.parse_date(source().get("created_at")
-					.toString());
 			
+			Date c = BaseModule.parse_date(source().get("created_at")
+					.toString());			
 			double t = (((new Date()).getTime() - c.getTime()) / (double) 3600000);
 			double gravity = ((Boolean) source().get("open")) ? 1 : 5;
 			

@@ -7,13 +7,12 @@ import java.util.Date;
 public class BaseModule {
 	public static Date parse_date(String s){
 		Date d = new Date();
-		try {
-			d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(s);
+		try {			
+			d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(s);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			
 		}	
-		return d;
-		
+		return d;		
 	}
 }
